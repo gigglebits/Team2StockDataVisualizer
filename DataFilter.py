@@ -10,4 +10,6 @@
 
 class dateFilter:
     def dateFilter(data, startDate, endDate):
+        #replace pass with the code
+        pass
         #data is passed to the date filter method in a dictionary.
