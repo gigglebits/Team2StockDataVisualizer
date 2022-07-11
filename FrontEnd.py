@@ -1,2 +1,2 @@
-from TKinter import *
+from tkinter import *
     
