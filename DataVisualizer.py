@@ -19,7 +19,6 @@ from ResultGraphing import *
 ###########Start Code for Query#####################
 
 #this is a sample query to the APIQuery.py file. 
-
 #query uses the arguments ticker, function, and interval.
 data = DataQuery.query('TMUS', 'TIME_SERIES_INTRADAY', '5min')
 print(data)
@@ -37,3 +36,9 @@ print(data)
 
 
 ###########End Code for Result Graphing################
+
+###########Start Code for DisplayResult################
+
+
+##########End Code for Display Results#################
+
