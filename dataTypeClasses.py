@@ -5,10 +5,11 @@
 #startDate is type dictionary (dict)
 #endDate is type dictionary (dict)
 class queryInput:
-    def __init__(self, ticker, chartType, timeSeries, startDate, endDate):
+    def __init__(self, ticker, chartType, timeSeries, interval, startDate, endDate):
         self.ticker = ticker
         self.chartType = chartType
         self.timeSeries = timeSeries
+        self.interval = interval
         self.startDate = startDate
         self.endDate = endDate
 
