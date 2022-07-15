@@ -53,7 +53,7 @@ filteredData = dateFilter.dateFilter(data, userInput.startDate, userInput.endDat
 ###########End Code for DataFilter######################
 
 ###########Start Code for Result Graphing###############
-
+print(filteredData)
 graphResults.graph(filteredData)
 
 ###########End Code for Result Graphing################
