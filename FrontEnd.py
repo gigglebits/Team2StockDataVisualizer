@@ -8,7 +8,7 @@ class FrontEnd:
 
         #Ask for ticker, store as a string. 
         ##Removing raw_input and changing to input() to make compatible with python 3. 
-        ticker = input("Enter the ticker sybol of the company you would like to view:\n$")
+        ticker = input("Enter the ticker symbol of the company you would like to view:\n$")
         ticker = ticker.upper()
 
         # ask if they would like a bar or line store as bool

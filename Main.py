@@ -54,6 +54,6 @@ filteredData = dateFilter.dateFilter(data, userInput.startDate, userInput.endDat
 
 ###########Start Code for Result Graphing###############
 
-graphResults.graph(filteredData)
+graphResults.graph(filteredData, userInput.chartType)
 
 ###########End Code for Result Graphing################

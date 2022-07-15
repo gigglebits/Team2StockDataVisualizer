@@ -1,4 +1,4 @@
-#The dateFilter class has a dateFilter method. This method will need to take a dictionary (data) and return a modified dictionary that excludes values outside the user's choices
+#The dateFilter class has a dateFilter method. This method will need to take a dictionary (data) and return a modified dictionary #that excludes values outside the user's choices
 #Start date and end date will also be in the dictionary format. Example below
 
 #dictionary example 
@@ -39,13 +39,7 @@ class dateFilter:
             if(date < startDate or date > endDate):
                 realData.pop(y)
 
-        print("\n\n\n\n\n\n\n\n\n\n\n\n\n\n")
-        print(realData)
+        #print("\n\n\n\n\n\n\n\n\n\n\n\n\n\n")
+        #print(realData)
         return realData
-        #replace pass with the code
-        pass
-
-
-
-
 
