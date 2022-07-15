@@ -17,5 +17,5 @@ class queryInput:
 
 
 #example of a queryInput object
-object = queryInput('TMUS', 0, 3, {"year" : 2007, "month" : 11, "day" : 12}, {"year" : 2008, "month" : 1, "day" : 5})
+#object = queryInput('TMUS', 0, 3, {"year" : 2007, "month" : 11, "day" : 12}, {"year" : 2008, "month" : 1, "day" : 5})
 
