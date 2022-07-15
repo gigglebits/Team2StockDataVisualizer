@@ -5,10 +5,12 @@ This repo will be used by Scrum Team 2 for Mizzou's IT4320s Summer 2022 semester
 NOTE - This project will use the following python modules to get datA and then display formatted results. YOU NEED TO INSTALL THESE MODULES TO RUN THE PROGRAM:
 
 API Querying - Requests
+
 Graphing - pygal
+
 Displaying of Results - lxml
 
-
+*****Once all Modules are installed you can run the code by running Main.py*****
 
 This project will be divided into several modules: 
 
