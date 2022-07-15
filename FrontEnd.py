@@ -1,17 +1,20 @@
 from datetime import date
+from dataTypeClasses import queryInput
+
 class FrontEnd:
     def frontEnd():
         #Welcome user to program
         print("Welcome to Stock Data Visuallizer")
 
-        #Ask for ticker, store as a string
-        ticker = raw_input("Enter the ticker sybol of the company you would like to view:\n$")
+        #Ask for ticker, store as a string. 
+        ##Removing raw_input and changing to input() to make compatible with python 3. 
+        ticker = input("Enter the ticker sybol of the company you would like to view:\n$")
         ticker = ticker.upper()
 
         # ask if they would like a bar or line store as bool
         while(True):
             try:
-                chartType = input("What chart type would you like?\n1. Bar\n2. Line\n")
+                chartType = int(input("What chart type would you like?\n1. Bar\n2. Line\n"))
                 if chartType == 1:
                     chartType = False
                     break
@@ -28,7 +31,7 @@ class FrontEnd:
         #ask what time series they would like store as int
         while(True):
             try:
-                timeSeries = input("What time series would you like?\n1. Interday\n2. Daily\n3. Weekly\n4. Monthly\n")
+                timeSeries = int(input("What time series would you like?\nPlease Note: If you select intraday you will only be provided the last 1 - 2 months of data.\n1. Interday\n2. Daily\n3. Weekly\n4. Monthly\n"))
                 if timeSeries == 1:
                     break
                 elif timeSeries == 2:
@@ -41,12 +44,33 @@ class FrontEnd:
                     print("Please enter a number 1 through 4.")
             except:
                 print("Please enter a number 1 though 4.")
+        
+        if timeSeries == 1:
+            while(True):
+                try:
+                    interval = int(input("What time intervals would you like to use?\n1. 1 min\n2. 5 min\n3. 15 min\n4. 30 min\n 5. 1 hour\n"))
+                    if interval == 1:
+                        break
+                    elif interval == 2:
+                        break
+                    elif interval == 3:
+                        break
+                    elif interval == 4:
+                        break
+                    elif interval ==5:
+                        break
+                    else:
+                        print("Please enter a number 1 through 5.")
+                except:
+                    print("Please enter a number 1 though 5.")
+        else:
+            interval = 6
 
         #ask for start date as dict
         currentTime = date.today()
         while(True):
             try:
-                startYear = input("Please enter the year you would like for the data to start:\n")
+                startYear = int(input("Please enter the year you would like for the data to start:\n"))
                 if startYear > currentTime.year:
                     print("Invalid year, please try again")
                 elif (startYear < currentTime.year - 20):
@@ -58,7 +82,7 @@ class FrontEnd:
 
         while(True):
             try:
-                startMonth = input("Please select the Month you would like for the data to start:\n1. January\n2. February\n3. March\n4. April\n5. May\n6. June\n7. July\n8. August\n9. September\n10. October\n11. November\n12. December\n")
+                startMonth = int(input("Please select the Month you would like for the data to start:\n1. January\n2. February\n3. March\n4. April\n5. May\n6. June\n7. July\n8. August\n9. September\n10. October\n11. November\n12. December\n"))
                 if startMonth > 12:
                     print("Invalid input try again")
                 elif startMonth < 1:
@@ -74,7 +98,7 @@ class FrontEnd:
 
         while(True):
             try:
-                startDay = input("Please enter the day you would like for the data to start:\n")
+                startDay = int(input("Please enter the day you would like for the data to start:\n"))
                 if ((startMonth == 4 or 6 or 9 or 11) and (startDay > 30)):
                     print("there are only 30 days in this month, please try again")
                 elif ((startMonth == 1 or 3 or 5 or 7 or 8 or 10 or 12) and (startDay > 31)):
@@ -99,7 +123,7 @@ class FrontEnd:
         #ask for end date store as dict
         while(True):
             try:
-                endYear = input("Please enter the year you would like for the data to end:\n")
+                endYear = int(input("Please enter the year you would like for the data to end:\n"))
                 if endYear > currentTime.year:
                     print("Invalid year, please try again")
                 elif (endYear < currentTime.year - 20):
@@ -113,7 +137,7 @@ class FrontEnd:
 
         while(True):
             try:
-                endMonth = input("Please select the Month you would like for the data to end:\n1. January\n2. February\n3. March\n4. April\n5. May\n6. June\n7. July\n8. August\n9. September\n10. October\n11. November\n12. December\n")
+                endMonth = int(input("Please select the Month you would like for the data to end:\n1. January\n2. February\n3. March\n4. April\n5. May\n6. June\n7. July\n8. August\n9. September\n10. October\n11. November\n12. December\n"))
                 if endMonth > 12:
                     print("Invalid input try again")
                 elif endMonth < 1:
@@ -131,7 +155,7 @@ class FrontEnd:
 
         while(True):
             try:
-                endDay = input("Please enter the day you would like for the data to end:\n")
+                endDay = int(input("Please enter the day you would like for the data to end:\n"))
                 if ((endMonth == 4 or 6 or 9 or 11) and (endDay > 30)):
                     print("there are only 30 days in this month, please try again")
                 elif ((endMonth == 1 or 3 or 5 or 7 or 8 or 10 or 12) and (endDay > 31)):
@@ -156,13 +180,15 @@ class FrontEnd:
 
         endDate = {"year": endYear, "month": endMonth, "day": endDay}
         #initiate a queryinput object with chosen data
-        class queryInput:
+        """class queryInput:
             def __init__(self, ticker, chartType, timeSeries, startDate, endDate):
                 self.ticker = ticker
                 self.chartType = chartType
                 self.timeSeries = timeSeries
                 self.startDate = startDate
-                self.endDate = endDate
+                self.endDate = endDate"""
+        inputObject = queryInput(ticker, chartType, timeSeries, interval, startDate, endDate)
+        
 
 #return queryInput object
-        return queryInput
+        return inputObject

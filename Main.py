@@ -12,10 +12,32 @@ userInput = FrontEnd.frontEnd()
 #Front end needs to return type queryInput from the queryInput class in the dataTypeClases.py file
 ###########End Code for Front End###################
 
-
 ###########Start Code for Query#####################
 
-data = DataQuery.query(userInput.ticker, userInput.timeSeries, userInput.interval)
+#Makes sense of the time series code in the userInput object. 
+if userInput.timeSeries == 1:
+    ts = "TIME_SERIES_INTRADAY"
+elif userInput.timeSeries == 2:
+    ts = "TIME_SERIES_DAILY"
+elif userInput.timeSeries == 3:
+    ts = "TIME_SERIES_WEEKLY"
+else:
+    ts = "TIME_SERIES_MONTHLY"
+
+#Makes sense of the interval code in the userInput object. 
+if userInput.interval == 1:
+    interval = "1min"
+elif userInput.interval == 2:
+    interval = "5min"
+elif userInput.interval == 3:
+    interval = "15min"
+elif userInput.interval == 4:
+    interval = "30min"
+else:
+    interval = "60min"
+
+#Calls the query object to make the api call. 
+data = DataQuery.query(userInput.ticker, ts, interval)
 
 #this is a sample query to the APIQuery.py file. 
 #query uses the arguments ticker, function, and interval.
@@ -26,7 +48,7 @@ data = DataQuery.query(userInput.ticker, userInput.timeSeries, userInput.interva
 
 ###########Start Code for DataFilter####################
 
-filteredData = dateFilter.datefilter(data, userInput.startDate, userInput.endDate)
+filteredData = dateFilter.dateFilter(data, userInput.startDate, userInput.endDate)
 
 ###########End Code for DataFilter######################
 
